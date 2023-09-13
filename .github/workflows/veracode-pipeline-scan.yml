@@ -10,7 +10,7 @@ jobs:
     - uses: a-karthik-bharadwaj-org/veracode-github-app@main
       with:
         head_sha: ${{ github.sha }}
-        owner: ${{ github.event.repository.owner.name }}
+        owner: 'a-karthik-bharadwaj-org'
         repo: ${{ github.event.repository.name }}
         name: 'Check for Pipeline Scan'
         status: 'in_progress'
