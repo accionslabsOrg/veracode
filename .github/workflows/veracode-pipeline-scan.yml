@@ -18,7 +18,7 @@ jobs:
         status: 'in_progress'
         event_type: 'pipeline scan'
         github_token: ${{ secrets.GITHUB_TOKEN }}
-    - run: "echo '${{ fromJson(steps.create_check_run.outputs) }}'"
+    - run: "echo '${{ steps.create_check_run.outputs.data }}'"
   pipeline_scan:
     runs-on: ubuntu-latest
     name: pipeline scan
