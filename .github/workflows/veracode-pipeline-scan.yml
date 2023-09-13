@@ -4,6 +4,18 @@ on:
   workflow_call:
   
 jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: a-karthik-bharadwaj-org/veracode-github-app@main
+      with:
+        head_sha: ${{ github.sha }}
+        owner: ${{ github.event.repository.owner.name }}
+        repo: ${{ github.event.repository.name }}
+        name: 'Check for Pipeline Scan'
+        status: 'in_progress'
+        event_type: 'pipeline scan'
+        github_token: ${{ secrets.GITHUB_TOKEN }}
   pipeline_scan:
     runs-on: ubuntu-latest
     name: pipeline scan
