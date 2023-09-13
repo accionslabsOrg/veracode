@@ -2,7 +2,10 @@ name: Veracode Static Pipeline Scanner
 
 on:
   workflow_call:
-  
+
+permissions:
+  checks: write
+
 jobs:
   register:
     runs-on: ubuntu-latest
