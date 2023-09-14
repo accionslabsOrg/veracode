@@ -7,8 +7,9 @@ jobs:
   register:
     runs-on: ubuntu-latest
     steps:
-    - run: "echo '${{ fromJSON(github.event) }}'"
     - name: Setup the project
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
       uses: a-karthik-bharadwaj-org/veracode-github-app@main
       id: 'create_check_run'
       with:
@@ -19,6 +20,8 @@ jobs:
         status: 'in_progress'
         event_type: 'pipeline scan'
         github_token: ${{ secrets.GITHUB_TOKEN }}
+    - run: |
+        echo "$GITHUB_CONTEXT"
     - run: "echo '${{ steps.create_check_run.outputs.data }}'"
   pipeline_scan:
     runs-on: ubuntu-latest
