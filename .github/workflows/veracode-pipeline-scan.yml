@@ -11,6 +11,14 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
+    - name: Dump GitHub Repository context
+      env:
+        GITHUB_REPO_CONTEXT: ${{ toJson(github.repository) }}
+      run: echo "$GITHUB_REPO_CONTEXT"
+    - name: Dump GitHub Event Repository context
+      env:
+        GITHUB_EVENT_REPO_CONTEXT: ${{ toJson(github.event.repository) }}
+      run: echo "$GITHUB_EVENT_REPO_CONTEXT"
     - name: Dump job context
       env:
         JOB_CONTEXT: ${{ toJson(job) }}
