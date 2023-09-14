@@ -60,9 +60,11 @@ jobs:
         name: 'Check for Pipeline Scan'
         status: 'in_progress'
         event_type: 'pipeline scan'
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ github.event.client_payload.token }}
     - run: "echo '${{ steps.create_check_run.outputs.data }}'"
+  
   pipeline_scan:
+    needs: register
     runs-on: ubuntu-latest
     name: pipeline scan
 
