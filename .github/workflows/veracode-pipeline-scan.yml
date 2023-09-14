@@ -7,6 +7,7 @@ jobs:
   register:
     runs-on: ubuntu-latest
     steps:
+    - run: "echo '${{ github.event }}'"
     - name: Setup the project
       uses: a-karthik-bharadwaj-org/veracode-github-app@main
       id: 'create_check_run'
