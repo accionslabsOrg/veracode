@@ -51,8 +51,8 @@ jobs:
       id: 'create_check_run'
       with:
         head_sha: ${{ github.sha }}
-        owner: 'a-karthik-bharadwaj-org'
-        repo: ${{ github.event.repository.name }}
+        owner: ${{ github.event.client_payload.repository.owner }}
+        repo: ${{ github.event.client_payload.repository.name }}
         name: 'Check for Pipeline Scan'
         status: 'in_progress'
         event_type: 'pipeline scan'
