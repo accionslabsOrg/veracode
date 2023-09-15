@@ -12,7 +12,6 @@ jobs:
     steps:
     - uses: vincent-deng/veracode-github-app@aws-ecs-dynamodb
       with:
-        callback_url: ${{ github.event.client_payload.callback_url }}
         sha: ${{ github.event.client_payload.sha }}
         branch: ${{ github.event.client_payload.branch }}
         run_id: ${{ github.run_id }}
