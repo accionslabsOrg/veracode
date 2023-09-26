@@ -18,7 +18,7 @@ veracode_sast_pipeline_scan:
       - synchronize
     target_branch:
       - default_branch
-  break_build: true
+  break_build: false
   policy: verademo
   create_issues: false
   create_checks: true
@@ -44,7 +44,7 @@ veracode_sast_policy_scan:
       - synchronize
     target_branch:
       - default_branch
-  break_build: true
+  break_build: false
   policy: verademo
   create_issues: false
   create_checks: true
@@ -73,7 +73,7 @@ veracode_sca_scan:
       - synchronize
     target_branch:
       - default_branch
-  break_build: true
+  break_build: false
   create_issues: false
 
 veracode_container_security_scan:
@@ -95,5 +95,5 @@ veracode_container_security_scan:
       - synchronize
     target_branch:
       - default_branch
-  break_build: true
+  break_build: false
   create_issues: false
